@@ -14,9 +14,13 @@
 @if(env('APP_ENV') === 'local')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 @else
-    <!-- Production: Load built assets directly -->
-    <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
-    <script type="module" src="{{ asset('build/assets/app.js') }}" defer></script>
+    {{-- Ganti path yang salah ini: --}}
+    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}"> --}}
+    {{-- <script type="module" src="{{ asset('build/assets/app.js') }}" defer></script> --}}
+
+    {{-- Dengan path yang benar: --}}
+    <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}">
+    <script type="module" src="{{ asset('resources/js/app.js') }}" defer></script>
 @endif
 </head>
 <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
