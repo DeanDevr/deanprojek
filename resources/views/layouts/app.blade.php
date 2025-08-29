@@ -10,8 +10,18 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Styles and Scripts -->
+<!-- Styles and Scripts -->
+@if(env('APP_ENV') === 'local')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+@else
+    {{-- Ganti path yang salah ini: --}}
+    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}"> --}}
+    {{-- <script type="module" src="{{ asset('build/assets/app.js') }}" defer></script> --}}
+
+    {{-- Dengan path yang benar: --}}
+    <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}">
+    <script type="module" src="{{ asset('resources/js/app.js') }}" defer></script>
+@endif
 </head>
 <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
 
